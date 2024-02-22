@@ -3,13 +3,15 @@ import { cn } from "../../../utils/cn";
 import { useEffect, useRef, useState } from "react";
 
 export const BackgroundGradientAnimation = ({
-  gradientBackgroundStart = "rgb(108, 0, 162)",
-  gradientBackgroundEnd = "rgb(0, 17, 82)",
+  // gradientBackgroundStart = "rgb(0, 0, 0)",
+  gradientBackgroundStart = "repeating-conic-gradient(#FFF4 0%, transparent .0002%, transparent .075%, transparent .65%), repeating-conic-gradient(#FFF2 0%, transparent .0004%, transparent 0.05%, transparent .495%), radial-gradient(circle at 50% 50%, #121212, #000)",
+  // gradientBackgroundEnd = "rgb(0, 0, 0)",
+  // gradientBackgroundEnd = "black",
   firstColor = "18, 113, 255",
   secondColor = "221, 74, 255",
   thirdColor = "100, 220, 255",
   fourthColor = "200, 50, 50",
-  fifthColor = "180, 180, 50",
+  fifthColor = "221, 24, 34",
   pointerColor = "140, 100, 255",
   size = "80%",
   blendingValue = "hard-light",
@@ -44,10 +46,10 @@ export const BackgroundGradientAnimation = ({
       "--gradient-background-start",
       gradientBackgroundStart
     );
-    document.body.style.setProperty(
-      "--gradient-background-end",
-      gradientBackgroundEnd
-    );
+    // document.body.style.setProperty(
+    //   "--gradient-background-end",
+    //   gradientBackgroundEnd
+    // );
     document.body.style.setProperty("--first-color", firstColor);
     document.body.style.setProperty("--second-color", secondColor);
     document.body.style.setProperty("--third-color", thirdColor);
