@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  color: rgb(255, 69, 0);
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -18,6 +17,7 @@
 }
 
 body {
+  /* overflow: hidden; */
   color: rgb(var(--foreground-rgb));
   /* background: linear-gradient(
       to bottom,
@@ -34,3 +34,29 @@ body {
     text-wrap: balance;
   }
 }
+
+@media only screen and (max-width: 1268px) {
+  /* .gradients-container {
+    /* Adjust the size of animation points for smaller screens */
+    /* For example, reduce the size to 50px */
+    /*--size: 50px;
+  }/*/
+  body {
+    color: rgb(var(--foreground-rgb));
+    /* background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb)); */
+    background: repeating-conic-gradient(rgba(0, 0, 0, 0.909) 100%, transparent , transparent 75%, transparent 65%), repeating-conic-gradient(rgba(0, 0, 0, 0.013) 0%, transparent .04%, transparent 0.05%, transparent .495%), radial-gradient(circle at 50% 50%, #000000, #000000);
+  }
+}
+
+/* @media only screen and (min-width: 769px) {
+  .gradients-container {
+    /* Adjust the size of animation points for larger screens */
+    /* For example, increase the size to 100px */
+    /* --size: 100px; */
+  /* } */
+/* } */ 
