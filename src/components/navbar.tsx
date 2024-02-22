@@ -7,8 +7,12 @@ type Props = {};
 export default function Navbar({}: Props) {
   return (
     <>
-      <div className="sm:w-dvw z-10 flex justify-around gap-10 items-center mt-4">
-        <div className="bg-transparent font-mono font-extrabold text-4xl sm:text-xl ">
+      {/* sm:w-dvw z-10 flex justify-around gap-10 items-center mt-4 */}
+      <div className=" 2xl:flex w-dvw sm:flex sm:justify-between items-center justify-evenly font-mono sm:p-2   pt-3">
+        {/* <div className="bg-transparent font-mono font-extrabold text-4xl sm:text-xl ">
+          ConnectMe.io
+        </div> */}
+        <div className=" mb-3 sm:ml-4 sm:mt-3 text-4xl sm:text-xl  ">
           ConnectMe.io
         </div>
         <div className="bg-transparent flex flex-row gap-10 ">
@@ -23,11 +27,11 @@ export default function Navbar({}: Props) {
               alt="github"
               className="mr-3"
             />
-            Github
+            <p>Github</p>
           </Link>
           <Link
             className=" flex flex-row font-mono "
-            href="https://github.com/saiyamdubey"
+            href="https://twitter.com/Saiyam02079791"
           >
             <Image
               src={"twitter (1).svg"}
@@ -36,11 +40,11 @@ export default function Navbar({}: Props) {
               alt="ig"
               className=" mr-3"
             />
-            - Twitter
+            <p>- Twitter</p>
           </Link>
           <Link
             className=" flex flex-row font-mono "
-            href="https://github.com/saiyamdubey"
+            href="https://www.instagram.com/_saiyam_dubey/"
           >
             <Image
               src={"instagram (1).svg"}

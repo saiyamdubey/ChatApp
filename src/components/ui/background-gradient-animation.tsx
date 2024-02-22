@@ -2,7 +2,6 @@
 import { cn } from "@/../utils/cn";
 import { useEffect, useRef, useState } from "react";
 
-
 export const BackgroundGradientAnimation = ({
   // gradientBackgroundStart = "rgb(0, 0, 0)",
   gradientBackgroundStart = "repeating-conic-gradient(#FFF4 0%, transparent .0002%, transparent .075%, transparent .65%), repeating-conic-gradient(#FFF2 0%, transparent .0004%, transparent 0.05%, transparent .495%), radial-gradient(circle at 50% 50%, #121212, #000)",
@@ -12,9 +11,9 @@ export const BackgroundGradientAnimation = ({
   secondColor = "221, 74, 255",
   thirdColor = "100, 220, 255",
   fourthColor = "200, 50, 50",
-  fifthColor = "255, 69, 0",
-  pointerColor = "18, 211, 251",
-  size = "80%",
+  fifthColor = "255, 69, 190",
+  pointerColor = "100, 111, 21",
+  size = "90%",
   blendingValue = "hard-light",
   children,
   className,
@@ -83,7 +82,6 @@ export const BackgroundGradientAnimation = ({
       setTgY(event.clientY - rect.top);
     }
   };
-  
 
   return (
     <div
