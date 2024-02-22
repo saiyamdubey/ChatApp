@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tabler/icons-react": "^2.47.0",
     "@vercel/analytics": "^1.2.2",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.5",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-element-to-jsx-string": "^15.0.0",
     "react-icons": "^5.0.1",
     "tailwind-merge": "^2.2.1"
   },
