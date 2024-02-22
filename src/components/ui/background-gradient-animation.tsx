@@ -11,8 +11,8 @@ export const BackgroundGradientAnimation = ({
   secondColor = "221, 74, 255",
   thirdColor = "100, 220, 255",
   fourthColor = "200, 50, 50",
-  fifthColor = "221, 24, 34",
-  pointerColor = "140, 100, 255",
+  fifthColor = "255, 69, 0",
+  pointerColor = "18, 211, 251",
   size = "80%",
   blendingValue = "hard-light",
   children,
@@ -65,8 +65,8 @@ export const BackgroundGradientAnimation = ({
       if (!interactiveRef.current) {
         return;
       }
-      setCurX(curX + (tgX - curX) / 20);
-      setCurY(curY + (tgY - curY) / 20);
+      setCurX(curX + (tgX - curX) / 30);
+      setCurY(curY + (tgY - curY) / 30);
       interactiveRef.current.style.transform = `translate(${Math.round(
         curX
       )}px, ${Math.round(curY)}px)`;
