@@ -7,8 +7,7 @@ type Props = {};
 export default function Cards({}: Props) {
   return (
     <>
-      
-      <div className="z-50 flex justify-evenly items-center mt-6 ">
+      <div className="z-50 flex justify-evenly  gap-[-5rem] items-center mt-6 ">
         <div className=" h-4/4 md:h-2/2 w-4/4  relative max-w-sm">
           <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.90]  rounded-full blur-3xl" />
           <div className="relative shadow-2xl bg-gray-900 border border-gray-800  px-8 py-12 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
@@ -47,7 +46,7 @@ export default function Cards({}: Props) {
               </button>
             </Link>
             {/* <Link href="/dashboard" className="z-50">Dashboard</Link> */}
-            <Meteors number={4} />
+            <Meteors number={8} />
           </div>
         </div>
 
@@ -90,7 +89,7 @@ export default function Cards({}: Props) {
               </button>
             </Link>
 
-            <Meteors number={4} />
+            <Meteors number={10} />
           </div>
         </div>
       </div>
