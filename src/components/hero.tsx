@@ -4,6 +4,7 @@ import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import Navbar from "@/components/navbar";
 import Cards from "./cards";
 
+
 type Props = {};
 
 export default function Hero({}: Props) {
@@ -34,14 +35,17 @@ export default function Hero({}: Props) {
     },
   ];
   return (
-    <BackgroundGradientAnimation>
+    <BackgroundGradientAnimation className="-z-10">
       <Navbar />
-
-      <div className="sm:mt-[8%] 2xl:mt-[1%] z-50 flex px-4 cursor-pointer text-4xl justify-center sm:w-dvw ">
-        <h1 className=" text-white ">
-          <TypewriterEffectSmooth words={words} className="font-sans" />
-          <p className="font-normal text-base text-center text-slate-300 mb-8 relative z-50">
-            This Chat App is constructed with NodeJS, Express, and Socket.IO for
+      <div className="sm:mt-[8%]  mx-auto z-50 flex px-4 cursor-pointer text-4xl items-center justify-center sm:w-dvw ">
+        <h1 className=" text-white flex flex-col justify-center mx-[50%] w-dvw">
+          <TypewriterEffectSmooth words={words} className="font-sans " />
+          <p className="2xl:w-[46rem] font-normal text-base text-center text-slate-300 mb-8 relative z-50">
+            This real-time chat app in Next.js uses Socket.IO. Real-time updates
+            on the web can be achieved via long-polling, server-side events, or
+            web sockets. Long-polling involves periodic HTTP requests,
+            server-side events use the browser`s event source API, while web
+            sockets enable two-way communication between client and server.
           </p>
         </h1>
       </div>
