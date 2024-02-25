@@ -146,10 +146,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import io from "socket.io-client";
-import { Socket } from "socket.io-client";
+import { io } from "socket.io-client";
 
 let socket: SocketIOClient.Socket;
+
 
 const Home: React.FC = () => {
   const [message, setMessage] = useState<string>("");
