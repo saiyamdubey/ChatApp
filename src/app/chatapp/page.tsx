@@ -88,86 +88,84 @@
 
 "use client";
 
-import React, { useEffect, useState } from "react";
-import io from "socket.io-client";
+// import React, { useEffect, useState } from "react";
+// import io from "socket.io-client";
 
-let socket;
+// let socket;
 
-const Home = () => {
-  const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
-  const [allMessages, setAllMessages] = useState([]);
+// const Home = () => {
+//   const [message, setMessage] = useState("");
+//   const [username, setUsername] = useState("");
+//   const [allMessages, setAllMessages] = useState([]);
 
-  useEffect(() => {
-    socketInitializer();
+//   useEffect(() => {
+//     socketInitializer();
 
-    return () => {
-      if (socket) {
-        socket.disconnect();
-      }
-    };
-  }, []);
+//     return () => {
+//       if (socket) {
+//         socket.disconnect();
+//       }
+//     };
+//   }, []);
 
-  async function socketInitializer() {
-    await fetch("/api/socket");
+//   async function socketInitializer() {
+//     await fetch("/api/socket");
 
-    socket = io();
+//     socket = io();
 
-    socket.on("receive-message", (data) => {
-      setAllMessages((pre) => [...pre, data]);
-    });
-  }
+//     socket.on("receive-message", (data) => {
+//       setAllMessages((pre) => [...pre, data]);
+//     });
+//   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+//   function handleSubmit(e) {
+//     e.preventDefault();
 
-    console.log("emitted");
+//     console.log("emitted");
 
-    if (socket) {
-      socket.emit("send-message", {
-        username,
-        message,
-      });
-    }
-    setMessage("");
-  }
+//     if (socket) {
+//       socket.emit("send-message", {
+//         username,
+//         message,
+//       });
+//     }
+//     setMessage("");
+//   }
 
-  return (
-    <div>
-      <h1 className="m-96 bg-orange-600">Chat app</h1>
-      <h1>Enter a username</h1>
+//   return (
+//     <div>
+//       <h1 className="m-96 bg-orange-600">Chat app</h1>
+//       <h1>Enter a username</h1>
 
-      <input value={username} onChange={(e) => setUsername(e.target.value)} />
+//       <input value={username} onChange={(e) => setUsername(e.target.value)} />
 
-      <br />
-      <br />
+//       <br />
+//       <br />
 
-      <div>
-        {allMessages.map(({ username, message }, index) => (
-          <div key={index}>
-            {username}: {message}
-          </div>
-        ))}
+//       <div>
+//         {allMessages.map(({ username, message }, index) => (
+//           <div key={index}>
+//             {username}: {message}
+//           </div>
+//         ))}
 
-        <br />
+//         <br />
 
-        <form onSubmit={handleSubmit}>
-          <input
-            name="message"
-            placeholder="enter your message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            autoComplete={"off"}
-          />
-        </form>
-      </div>
-    </div>
-  );
-};
+//         <form onSubmit={handleSubmit}>
+//           <input
+//             name="message"
+//             placeholder="enter your message"
+//             value={message}
+//             onChange={(e) => setMessage(e.target.value)}
+//             autoComplete={"off"}
+//           />
+//         </form>
+//       </div>
+//     </div>
+//   );
+// };
 
-export default Home;
-
-
+// export default Home;
 
 
 
@@ -191,7 +189,9 @@ export default Home;
 
 
 
-// "use client";
+
+
+"use client";
 
 // import React, { useEffect, useState } from "react";
 // import { io } from "socket.io-client";
@@ -289,3 +289,100 @@ export default Home;
 // };
 
 // export default Home;
+
+
+import React, { useEffect, useState } from "react";
+import { io, Socket } from "socket.io-client"; // Import Socket type
+
+let socket: Socket;
+
+const Home: React.FC = () => {
+  const [message, setMessage] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  const [allMessages, setAllMessages] = useState<
+    { username: string; message: string }[]
+  >([]);
+
+  useEffect(() => {
+    socketInitializer();
+
+    return () => {
+      if (socket) {
+        socket.disconnect();
+      }
+    };
+  }, []);
+
+  async function socketInitializer() {
+    await fetch("/api/socket");
+
+    socket = io();
+
+    socket.on(
+      "receive-message",
+      (data: { username: string; message: string }) => {
+        setAllMessages((prev) => [...prev, data]);
+      }
+    );
+  }
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    console.log("emitted");
+
+    if (socket) {
+      socket.emit("send-message", {
+        username,
+        message,
+      });
+    }
+    setMessage("");
+  }
+
+  return (
+    <div>
+      <h1 className=" bg-orange-600 text-center text-4xl font-mono font-extrabold py-6">
+        Stay Connected to Me.io
+      </h1>
+      <div className="flex flex-row justify-center items-center gap-4 m-2">
+        <h1 className=" text-white text-center text-xl font-mono font-bold py-6">
+          Enter a username
+        </h1>
+
+        <input
+          className=" bg-transparent text-xl text-white pl-7 placeholder:text-gray-400 placeholder:text-lg w-[30rem] h-[4rem] border-2 border-orange-700 rounded-lg "
+          title="message"
+          value={username}
+          placeholder="Username..."
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+
+      <br />
+      <br />
+
+      <div>
+        {allMessages.map(({ username, message }, index) => (
+          <div key={index}>
+            {username}: {message}
+          </div>
+        ))}
+
+        <br />
+
+        <form onSubmit={handleSubmit}>
+          <input
+            name="message"
+            placeholder="enter your message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            autoComplete="off"
+          />
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
