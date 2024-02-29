@@ -62,29 +62,7 @@
 
 // correct for the jsx extention
 
-
-
-
-
-
-
 // This real-time chat app in Next.js uses Socket.IO. Real-time updates on the web can be achieved via long-polling, server-side events, or web sockets. Long-polling involves periodic HTTP requests, server-side events use the browser`s event source API, while web sockets enable two-way communication between client and server.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 "use client";
 
@@ -167,37 +145,12 @@
 
 // export default Home;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 "use client";
 
 // import React, { useEffect, useState } from "react";
 // import { io } from "socket.io-client";
 
 // let socket: SocketIOClient.Socket;
-
 
 // const Home: React.FC = () => {
 //   const [message, setMessage] = useState<string>("");
@@ -290,9 +243,8 @@
 
 // export default Home;
 
-
 import React, { useEffect, useState } from "react";
-import { io, Socket } from "socket.io-client"; 
+import { io, Socket } from "socket.io-client";
 
 let socket: Socket;
 
@@ -347,11 +299,11 @@ const Home: React.FC = () => {
       </h1>
       <div className="flex flex-row justify-center items-center gap-4 m-2">
         <h1 className=" text-white text-center text-xl font-mono font-bold py-6">
-          Enter a username
+          {/* Enter a username */}
         </h1>
 
         <input
-          className=" bg-transparent text-xl text-white pl-7 placeholder:text-gray-400 placeholder:text-lg w-[30rem] h-[4rem] border-2 border-orange-700 rounded-lg "
+          className=" bg-transparent text-xl text-white pl-7 placeholder:text-gray-400 placeholder:text-lg w-[50rem] h-[4rem] border-2 border-green-700 rounded-lg "
           title="message"
           value={username}
           placeholder="Username..."
@@ -362,10 +314,11 @@ const Home: React.FC = () => {
       <br />
       <br />
 
-      <div>
+      <div className="h-auto justify-center items-center flex-col sticky bottom-4 left-2/4">
         {allMessages.map(({ username, message }, index) => (
           <div key={index}>
-            {username}: {message}
+            <h1 className="text-emerald-400">{username}</h1> :{" "}
+            <p className="text-orange-500">{message}</p>
           </div>
         ))}
 
@@ -374,7 +327,8 @@ const Home: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <input
             name="message"
-            placeholder="enter your message"
+            className=" text-white bg-transparent border-2 border-pink-600 placeholder:text-gray-400 w-[30rem] h-[4rem] rounded-lg pl-6 "
+            placeholder="Enter your message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             autoComplete="off"
