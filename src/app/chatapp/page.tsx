@@ -64,7 +64,6 @@
 
 // This real-time chat app in Next.js uses Socket.IO. Real-time updates on the web can be achieved via long-polling, server-side events, or web sockets. Long-polling involves periodic HTTP requests, server-side events use the browser`s event source API, while web sockets enable two-way communication between client and server.
 
-"use client";
 
 // import React, { useEffect, useState } from "react";
 // import io from "socket.io-client";
@@ -145,7 +144,7 @@
 
 // export default Home;
 
-"use client";
+
 
 // import React, { useEffect, useState } from "react";
 // import { io } from "socket.io-client";
@@ -242,6 +241,9 @@
 // };
 
 // export default Home;
+
+"use client";
+
 
 import React, { useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
