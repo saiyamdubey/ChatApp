@@ -65,8 +65,8 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
-// const socket = io("https://chatserver-q3gi.onrender.com/");
-const socket = io("http://localhost:4000/");
+const socket = io("https://chatserver-q3gi.onrender.com/");
+// const socket = io("http://localhost:4000/");
 
 export default function Page() {
   const [messages, setMessages] = useState<
