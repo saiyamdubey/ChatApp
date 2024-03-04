@@ -72,10 +72,10 @@ export default function Page() {
             {messages.map((messageObj, index) => (
               <li
                 key={index}
-                className={`m-4 p-7 text-xl flex items-center rounded-3xl ${
+                className={`m-4 p-4 text-xl flex items-center rounded-3xl ${
                   messageObj.sentByCurrentUser
-                    ? "bg-green-500 justify-end"
-                    : "bg-orange-600 justify-start"
+                    ? "bg-green-700 justify-end"
+                    : "bg-red-600 justify-start"
                 }`}
               >
                 <span className="font-bold text-wrap ">
