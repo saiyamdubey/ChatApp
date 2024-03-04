@@ -61,7 +61,7 @@ export default function Page() {
   return (
     <>
       <h1 className="font-extrabold font-mono text-6xl mb-2 text-center text-violet-400">
-        Global Private Chat
+        Global Private Chat Application
       </h1>
       <div className="h-[80vh] flex">
         <div
