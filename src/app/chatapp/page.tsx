@@ -3,7 +3,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("https://chatserver-q3gi.onrender.com/");
+// const socket = io("https://chatserver-q3gi.onrender.com/");
+const socket = io("http://localhost:4000/");
 
 interface Message {
   username: string;
@@ -63,10 +64,10 @@ export default function Page() {
       <h1 className="font-extrabold font-mono text-6xl mb-2 text-center text-violet-400">
         Global Private Chat Application
       </h1>
-      <div className="h-[80vh] flex">
+      <div className="h-[80vh] flex ">
         <div
           ref={chatContainerRef}
-          className={`border-2 border-white w-11/12 h-[100%] overflow-y-scroll`}
+          className="border-2 border-white w-11/12 h-[100%] overflow-y-scroll scroll-m-0 scroll-p-0"
         >
           <ul className="text-2xl font-mono ">
             {messages.map((messageObj, index) => (
