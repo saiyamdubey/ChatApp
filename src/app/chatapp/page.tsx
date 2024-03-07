@@ -173,18 +173,19 @@ export default function Page() {
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    socket.on("message",(message) => {
+    // Listen for "message" event to receive messages
+    socket.on("message", (message) => {
       setMessages((prevMessages) => [...prevMessages, message]);
     });
 
     // Listen for "onlineUsers" event to receive the number of online users
-    socket.on("onlineUsers", (online) => {
-      setOnline(online+1);
+    socket.on("onlineUsers", (count) => {
+      setOnline(count);
     });
 
     return () => {
       socket.off("message");
-      // socket.off("onlineUsers");
+      socket.off("onlineUsers");
     };
   }, []);
 
