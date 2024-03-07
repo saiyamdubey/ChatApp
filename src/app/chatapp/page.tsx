@@ -149,12 +149,11 @@
 //   );
 // }
 
-
 import React, { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 
-// const socket = io("http://localhost:4000/");
-const socket = io("https://chatserver-q3gi.onrender.com/");
+const socket = io("http://localhost:4000/");
+// const socket = io("https://chatserver-q3gi.onrender.com/");
 
 interface Message {
   username: string;
@@ -169,16 +168,14 @@ export default function Page() {
   const [send, setSend] = useState("");
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
-  const [online, setOnline] = useState<number>(0); // Initialize online state with 0
+  const [online, setOnline] = useState<number>(0);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Listen for "message" event to receive messages
     socket.on("message", (message) => {
       setMessages((prevMessages) => [...prevMessages, message]);
     });
 
-    // Listen for "onlineUsers" event to receive the number of online users
     socket.on("onlineUsers", (count) => {
       setOnline(count);
     });
@@ -191,7 +188,8 @@ export default function Page() {
 
   useEffect(() => {
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
     }
   }, [messages]);
 
@@ -227,7 +225,7 @@ export default function Page() {
     <>
       <div>
         <h1 className="font-extrabold font-mono text-6xl mb-2 text-center text-violet-400">
-          Global Private Chat ({online} online)
+          Global Private Chat ({online} online users)
         </h1>
         <div className="flex h-[80vh] ">
           <div
