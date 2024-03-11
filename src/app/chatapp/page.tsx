@@ -89,20 +89,20 @@ export default function Page() {
               ref={chatContainerRef}
               className="flex-grow overflow-y-scroll px-5 py-2 scrolleffect"
             >
-              <ul className="space-y-4">
+              <ul className="space-y-4 ">
                 {messages.map((messageObj, index) => (
                   <li
                     key={index}
-                    className={`p-2 flex gap-3 items-center justify-evenly rounded-3xl  ${
+                    className={`p-[10px] px-6  flex-wrap h-fit gap-3 items-center justify-evenly rounded-3xl  ${
                       messageObj.sentByCurrentUser
                         ? "bg-purple-700 text-right min-w-[10rem] max-w-fit ml-auto"
                         : "bg-red-600 text-left min-w-[10rem] max-w-fit mr-auto"
                     }`}
                   >
-                    <span className="font-extrabold text-gray-200">
+                    <span className=" text-gray-200">
                       {messageObj.username} :
                     </span>
-                    <p className="text-white text-xl text-wrap auto-cols-max overflow-hidden">
+                    <p className="text-white text-xl font-bold text-wrap auto-cols-max overflow-hidden">
                       {messageObj.message}
                     </p>
                   </li>
