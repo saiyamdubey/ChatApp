@@ -7,8 +7,8 @@ type Props = {};
 export default function Navbar({}: Props) {
   return (
     <>
-      <div className=" 2xl:flex w-dvw sm:flex sm:justify-between items-center justify-evenly gap-[40rem] font-serif font-extrabold sm:p-2  pt-3">
-        <div className="mt-2 mb-3 sm:ml-4 sm:mt-3 text-3xl sm:text-xl  ">
+      <div className=" flex w-dvw items-center justify-evenly sm:flex-col 2xl:gap-[44rem] font-serif font-extrabold sm:p-2  pt-3">
+        <div className="mt-2 mb-3  sm:mt-3 text-3xl sm:text-[20px]  ">
           ConnectIt.io
         </div>
         <div className="bg-transparent flex flex-row gap-10 ">
@@ -23,7 +23,7 @@ export default function Navbar({}: Props) {
               alt="github"
               className="mr-3"
             />
-            <p>Github</p>
+            <p className="sm:hidden">Github</p>
           </Link>
           <Link
             className=" flex flex-row font-mono "
@@ -36,7 +36,7 @@ export default function Navbar({}: Props) {
               alt="ig"
               className=" mr-3"
             />
-            <p>- Twitter</p>
+            <p className="sm:hidden">- Twitter</p>
           </Link>
           <Link
             className=" flex flex-row font-mono "
@@ -49,7 +49,7 @@ export default function Navbar({}: Props) {
               alt="ig"
               className="mr-4"
             />
-            Instagram
+            <p className="sm:hidden">Instagram</p>
           </Link>
         </div>
       </div>

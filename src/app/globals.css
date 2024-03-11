@@ -78,3 +78,7 @@ body {
 .card:hover {
   transform: translateY(-10px);
 }
+
+.scrolleffect::-webkit-scrollbar {
+    display: none;
+}

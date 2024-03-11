@@ -3,8 +3,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { io, Socket } from "socket.io-client";
 
-const socket = io("http://localhost:4000/");
-// const socket = io("https://chatserver-q3gi.onrender.com/");
+// const socket = io("http://localhost:4000/");
+const socket = io("https://chatserver-q3gi.onrender.com/");
 
 interface Message {
   username: string;
@@ -84,39 +84,41 @@ export default function Page() {
           Global Private Chat ({online} Online)
         </h1>
         <div className="flex flex-grow overflow-hidden">
-          <div className="flex flex-col w-3/4 border-r border-white">
+          <div className="flex flex-col w-3/4 border-r ">
             <div
               ref={chatContainerRef}
-              className="flex-grow overflow-y-scroll px-6 py-4"
+              className="flex-grow overflow-y-scroll px-5 py-2 scrolleffect"
             >
               <ul className="space-y-4">
                 {messages.map((messageObj, index) => (
                   <li
                     key={index}
-                    className={`p-4 rounded-xl ${
+                    className={`p-2 flex gap-3 items-center justify-evenly rounded-3xl  ${
                       messageObj.sentByCurrentUser
-                        ? "bg-green-600 text-right"
-                        : "bg-red-600 text-left"
+                        ? "bg-purple-700 text-right min-w-[10rem] max-w-fit ml-auto"
+                        : "bg-red-600 text-left min-w-[10rem] max-w-fit mr-auto"
                     }`}
                   >
-                    <span className="font-bold text-gray-200">
-                      {messageObj.username}:
+                    <span className="font-extrabold text-gray-200">
+                      {messageObj.username} :
                     </span>
-                    <p className="text-white">{messageObj.message}</p>
+                    <p className="text-white text-xl text-wrap auto-cols-max overflow-hidden">
+                      {messageObj.message}
+                    </p>
                   </li>
                 ))}
               </ul>
             </div>
             <form onSubmit={handleSubmit} className=" bg-transparent p-4">
               <input
-                className="text-white text-lg bg-gray-800 border-b border-white focus:outline-none placeholder-gray-400 py-4 px-10 rounded-full w-[40rem]"
+                className="text-white text-lg  bg-transparent border-2 border-white focus:outline-none placeholder-gray-400 py-4 px-10 rounded-full w-[40rem]"
                 type="text"
                 value={send}
                 onChange={(e) => setSend(e.target.value)}
                 placeholder="Type your message"
               />
               <button
-                className="text-white text-lg bg-violet-500 border border-violet-500 hover:bg-violet-600 hover:border-violet-600 rounded-full px-8 py-2 ml-4 w-[25rem]"
+                className="text-black text-2xl font-extrabold bg-white border-2 border-black hover:bg-black hover:text-white  hover:border-white rounded-full px-8 py-4 ml-4 w-[25rem]"
                 type="submit"
               >
                 Send
@@ -126,21 +128,21 @@ export default function Page() {
           <div className="flex flex-col w-1/4 bg-transparent p-4">
             <form onSubmit={handleJoinRoom} className="flex flex-col space-y-4">
               <input
-                className="text-white text-lg bg-gray-700 border border-white focus:outline-none placeholder-gray-400 py-2 px-4 rounded-full"
+                className="text-white text-lg bg-transparent border border-white focus:outline-none placeholder-gray-400 py-2 px-4 rounded-full"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Your Username"
               />
               <input
-                className="text-white text-lg bg-gray-700 border border-white focus:outline-none placeholder-gray-400 py-2 px-4 rounded-full"
+                className="text-white text-lg bg-transparent border border-white focus:outline-none placeholder-gray-400 py-2 px-4 rounded-full"
                 type="text"
                 value={room}
                 onChange={(e) => setRoom(e.target.value)}
                 placeholder="Room Name"
               />
               <button
-                className="text-white text-lg bg-violet-500 border border-violet-500 hover:bg-violet-600 hover:border-violet-600 rounded-full py-2"
+                className="text-black text-lg font-extrabold bg-white border-2 border-white hover:bg-black hover:border-white hover:text-white rounded-full py-2"
                 type="submit"
               >
                 Join Room
