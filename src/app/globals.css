@@ -19,7 +19,7 @@
 body {
   /* user-select: none; */
   /* -moz-user-select: none; */
-  overflow-x: hidden;
+  overflow: hidden;
   color: rgb(var(--foreground-rgb));
   /* background: linear-gradient(
       to bottom,

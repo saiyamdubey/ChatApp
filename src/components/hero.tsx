@@ -34,13 +34,13 @@ export default function Hero({}: Props) {
     },
   ];
   return (
-    <BackgroundGradientAnimation className="-z-10">
+    <BackgroundGradientAnimation className="-z-50">
       <Navbar />
-      <div className="z-50 flex-col flex px-4 text-center cursor-pointer text-4xl items-center justify-center w-dvw">
+      <div className="z-50 sm:hidden flex-col flex px-4 text-center cursor-pointer text-4xl items-center justify-center w-dvw">
         <h1 className=" text-white flex-col justify-center items-center">
           <TypewriterEffectSmooth words={words} className="font-sans" />
         </h1>
-        <p className="2xl:w-[46rem] sm:hidden font-normal text-[16px] text-center text-slate-300 mb-8 relative z-50 ">
+        <p className="2xl:w-[46rem] sm:hidden font-normal text-[16px] text-center text-slate-300 mb-8 relative z-50 tracking-wide leading-loose">
           This real-time chat app in Next.js uses Socket.IO. Real-time updates
           on the web can be achieved via long-polling, server-side events, or
           web sockets. Long-polling involves periodic HTTP requests, server-side
