@@ -3,8 +3,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { io, Socket } from "socket.io-client";
 
-// const socket = io("http://localhost:4000/");
-const socket = io("https://chatserver-q3gi.onrender.com/");
+const socket = io("http://localhost:4000/");
+// const socket = io("https://chatserver-q3gi.onrender.com/");
 
 interface Message {
   username: string;
@@ -12,7 +12,7 @@ interface Message {
   sentByCurrentUser?: boolean;
   timestamp: string;
   room: string;
-  online: number;
+  online : number;
 }
 
 export default function Page() {
@@ -31,6 +31,16 @@ export default function Page() {
 
     return () => {
       socket.off("message");
+    };
+  }, []);
+
+  useEffect(() => {
+    socket.on("getonlineuser", (onlineuserdata) => {
+      setOnline(onlineuserdata);
+    });
+
+    return () => {
+      socket.off("getonlineuser");
     };
   }, []);
 
@@ -71,8 +81,10 @@ export default function Page() {
   function handleJoinRoom(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (username.trim() !== "" && room.trim() !== "") {
+      socket.emit("getonlineuser", { room, online });
       socket.emit("join", { username, room });
       setUsername(username);
+
       setRoom(room);
     }
   }
@@ -80,11 +92,11 @@ export default function Page() {
   return (
     <>
       <div className="flex flex-col h-[90vh] bg-transparent">
-        <h1 className="font-extrabold font-mono text-4xl mb-2 text-center text-violet-100">
-          Global Private Chat ({online} Online)
+        <h1 className="font-extrabold font-font-font-sans text-4xl sm:text-xl mb-2 text-center text-violet-100">
+          Private Chat ({online} Online)
         </h1>
-        <div className="flex flex-grow overflow-hidden">
-          <div className="flex flex-col w-3/4 border-r ">
+        <div className="flex sm:flex-col flex-grow overflow-hidden">
+          <div className="flex flex-col w-3/4 sm:h-[90vh] sm:rounded-2xl sm:w-full border-r sm:border-2 ">
             <div
               ref={chatContainerRef}
               className="flex-grow overflow-y-scroll px-5 py-2 scrolleffect"
@@ -93,10 +105,10 @@ export default function Page() {
                 {messages.map((messageObj, index) => (
                   <li
                     key={index}
-                    className={`p-[10px] px-6  flex-wrap h-fit gap-3 items-center justify-evenly rounded-3xl  ${
+                    className={`p-[14px] px-6  flex-wrap h-fit gap-3 items-center justify-evenly rounded-3xl  ${
                       messageObj.sentByCurrentUser
-                        ? "bg-purple-700 text-right min-w-[10rem] max-w-fit ml-auto"
-                        : "bg-red-600 text-left min-w-[10rem] max-w-fit mr-auto"
+                        ? "bg-purple-700 text-right min-w-[10rem] sm:min-w-[5rem]  max-w-fit ml-auto"
+                        : "bg-red-600 text-left min-w-[10rem] sm:min-w-[5rem] max-w-fit mr-auto"
                     }`}
                   >
                     <span className=" text-gray-200">
@@ -111,14 +123,14 @@ export default function Page() {
             </div>
             <form onSubmit={handleSubmit} className=" bg-transparent p-4">
               <input
-                className="text-white text-lg  bg-transparent border-2 border-white focus:outline-none placeholder-gray-400 py-4 px-10 rounded-full w-[40rem]"
+                className="text-white text-lg sm:w-[70%] sm:py-2 sm:pl-4  bg-transparent border-2 border-white focus:outline-none placeholder-gray-400 py-4 px-10 rounded-full w-[40rem]"
                 type="text"
                 value={send}
                 onChange={(e) => setSend(e.target.value)}
                 placeholder="Type your message"
               />
               <button
-                className="text-black text-2xl font-extrabold bg-white border-2 border-black hover:bg-black hover:text-white  hover:border-white rounded-full px-8 py-4 ml-4 w-[25rem]"
+                className="text-black sm:text-[15px] sm:text-center  sm:w-[6rem] text-2xl font-extrabold bg-white border-2 border-black hover:bg-black hover:text-white  hover:border-white rounded-full px-8 py-4 ml-4 w-[25rem]"
                 type="submit"
               >
                 Send
