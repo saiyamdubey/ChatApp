@@ -12,7 +12,7 @@ interface Message {
   sentByCurrentUser?: boolean;
   timestamp: string;
   room: string;
-  online : number;
+  online: number;
 }
 
 export default function Page() {
@@ -96,7 +96,7 @@ export default function Page() {
           Private Chat ({online} Online)
         </h1>
         <div className="flex sm:flex-col flex-grow overflow-hidden">
-          <div className="flex flex-col w-3/4 sm:h-[90vh] sm:rounded-2xl sm:w-full border-r sm:border-2 ">
+          <div className="flex flex-col w-3/4 sm:h-[90vh] sm:rounded-2xl sm:w-full border-gray-700 border-r sm:border-2 ">
             <div
               ref={chatContainerRef}
               className="flex-grow overflow-y-scroll px-5 py-2 scrolleffect"
@@ -121,16 +121,16 @@ export default function Page() {
                 ))}
               </ul>
             </div>
-            <form onSubmit={handleSubmit} className=" bg-transparent p-4">
+            <form onSubmit={handleSubmit} className="bg-transparent p-4">
               <input
-                className="text-white text-lg sm:w-[70%] sm:py-2 sm:pl-4  bg-transparent border-2 border-white focus:outline-none placeholder-gray-400 py-4 px-10 rounded-full w-[40rem]"
+                className="text-white text-lg sm:w-[75%] sm:py-2 sm:pl-4 bg-transparent border-2 border-gray-400 focus:outline-none placeholder-gray-600 py-4 px-10 rounded-full w-[75%] sm:rounded-xl"
                 type="text"
                 value={send}
                 onChange={(e) => setSend(e.target.value)}
                 placeholder="Type your message"
               />
               <button
-                className="text-black sm:text-[15px] sm:text-center  sm:w-[6rem] text-2xl font-extrabold bg-white border-2 border-black hover:bg-black hover:text-white  hover:border-white rounded-full px-8 py-4 ml-4 w-[25rem]"
+                className="text-black sm:text-[15px] sm:text-center sm:w-[20%] text-2xl font-extrabold bg-white border-2 border-black hover:bg-black hover:text-white hover:border-white rounded-full sm:rounded-md px-10 sm:p-1 py-3 ml-4 w-[20%]"
                 type="submit"
               >
                 Send
