@@ -7,11 +7,11 @@ type Props = {};
 export default function Navbar({}: Props) {
   return (
     <>
-      <div className=" flex w-dvw items-center justify-evenly sm:flex-col 2xl:gap-[44rem] font-serif font-extrabold sm:p-2  pt-3">
-        <div className="mt-2 mb-3  sm:mt-0 text-3xl sm:text-[20px]  ">
+      <div className=" flex w-dvw items-center justify-between sm:flex-row px-20 font-serif font-extrabold sm:p-2  pt-3">
+        <div className=" sm:pl-2 text-3xl sm:text-[20px] ">
           ConnectIt.io
         </div>
-        <div className="bg-transparent flex flex-row gap-10 sm:gap-5">
+        <div className="bg-transparent flex flex-row gap-10 sm:gap-5 sm:mb-2">
           <Link
             className=" flex flex-row font-mono "
             href="https://github.com/saiyamdubey"
@@ -26,7 +26,7 @@ export default function Navbar({}: Props) {
             <p className="sm:hidden">Github</p>
           </Link>
           <Link
-            className=" flex flex-row font-mono "
+            className="flex flex-row font-mono "
             href="https://twitter.com/Saiyam02079791"
           >
             <Image
