@@ -96,7 +96,7 @@ export default function Page() {
           Private Chat ( {online} Users Online)
         </h1>
         <div className="flex sm:flex-col flex-grow overflow-hidden">
-          <div className="flex flex-col w-3/4 sm:h-[94vh]  sm:w-full border-gray-700 border-r sm:border-0">
+          <div className="flex flex-col w-3/4 sm:h-[72vh] sm:w-full border-gray-700 border-r sm:border-0">
             <div
               ref={chatContainerRef}
               className="flex-grow overflow-y-scroll px-5 py-2 scrolleffect sm:border-b border-gray-700"
@@ -105,18 +105,18 @@ export default function Page() {
                 {messages.map((messageObj, index) => (
                   <li
                     key={index}
-                    className={`p-[14px] px-6  flex-wrap h-fit gap-3 items-center justify-evenly rounded-3xl  ${
+                    className={`p-[14px] px-6 sm:flex 2xl:flex sm:px-4 sm:py-2  flex-wrap h-fit gap-3 items-center justify-evenly rounded-3xl  ${
                       messageObj.sentByCurrentUser
                         ? "bg-purple-700 text-right min-w-[10rem] sm:min-w-[5rem]  max-w-fit ml-auto"
                         : "bg-red-600 text-left min-w-[10rem] sm:min-w-[5rem] max-w-fit mr-auto"
                     }`}
                   >
-                    <span className=" text-gray-200">
+                    <span className=" text-gray-200 sm:text-[16px] sm:font-mono ">
                       {messageObj.username} :
                     </span>
-                    <p className="text-white text-xl font-bold text-wrap auto-cols-max overflow-hidden">
+                    <pre className="text-white text-xl sm:text-[16px] sm:font-serif sm:font-light font-bold text-wrap auto-cols-max overflow-hidden">
                       {messageObj.message}
-                    </p>
+                    </pre>
                   </li>
                 ))}
               </ul>
@@ -178,7 +178,6 @@ export default function Page() {
               >
                 Join
               </button>
-              
             </form>
           </div>
         </div>
