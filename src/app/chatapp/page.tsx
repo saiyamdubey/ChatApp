@@ -93,13 +93,13 @@ export default function Page() {
     <>
       <div className="flex flex-col h-[90vh] bg-transparent">
         <h1 className="font-extrabold font-font-font-sans text-4xl sm:text-xl mb-2 text-center text-violet-100">
-          Private Chat ({online} Online)
+          Private Chat ( {online} Users Online)
         </h1>
         <div className="flex sm:flex-col flex-grow overflow-hidden">
-          <div className="flex flex-col w-3/4 sm:h-[90vh] sm:rounded-2xl sm:w-full border-gray-700 border-r sm:border-2 ">
+          <div className="flex flex-col w-3/4 sm:h-[94vh]  sm:w-full border-gray-700 border-r sm:border-0">
             <div
               ref={chatContainerRef}
-              className="flex-grow overflow-y-scroll px-5 py-2 scrolleffect"
+              className="flex-grow overflow-y-scroll px-5 py-2 scrolleffect sm:border-b border-gray-700"
             >
               <ul className="space-y-4 ">
                 {messages.map((messageObj, index) => (
@@ -121,43 +121,62 @@ export default function Page() {
                 ))}
               </ul>
             </div>
-            <form onSubmit={handleSubmit} className="bg-transparent p-4">
+            <form onSubmit={handleSubmit} className="bg-transparent p-2 ">
               <input
-                className="text-white text-lg sm:w-[75%] sm:py-2 sm:pl-4 bg-transparent border-2 border-gray-400 focus:outline-none placeholder-gray-600 py-4 px-10 rounded-full w-[75%] sm:rounded-xl"
+                className="text-white text-lg sm:w-[75%] sm:py-[4px] sm:pl-4 bg-transparent border border-gray-400 focus:outline-none placeholder-gray-600 py-4 px-10 rounded-full w-[75%] sm:rounded-xl"
                 type="text"
                 value={send}
                 onChange={(e) => setSend(e.target.value)}
                 placeholder="Type your message"
               />
               <button
-                className="text-black sm:text-[15px] sm:text-center sm:w-[20%] text-2xl font-extrabold bg-white border-2 border-black hover:bg-black hover:text-white hover:border-white rounded-full sm:rounded-md px-10 sm:p-1 py-3 ml-4 w-[20%]"
+                className="text-black sm:text-[17px] sm:text-center sm:w-[20%] text-2xl font-extrabold bg-green-600 border-2 border-black hover:bg-black hover:text-white hover:border-green-600 rounded-full sm:rounded-md px-10 sm:p-1 py-3 ml-4 w-[20%] sm:text-white"
                 type="submit"
               >
                 Send
               </button>
             </form>
           </div>
-          <div className="flex flex-col w-1/4 bg-transparent p-4">
-            <form onSubmit={handleJoinRoom} className="flex flex-col space-y-4">
+          <div className="flex flex-col w-[25%] bg-transparent p-4  my-auto sm:flex-row sm:justify-between ">
+            <form
+              onSubmit={handleJoinRoom}
+              className="flex flex-col space-y-4 sm:flex-row sm:mb-4 sm:gap-5  "
+            >
               <input
-                className="text-white text-lg bg-transparent border border-white focus:outline-none placeholder-gray-400 py-2 px-4 rounded-full"
+                className="sm:hidden text-white text-lg bg-transparent border border-gray-300 focus:outline-none placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-48 sm:pl-2 sm:p-1  rounded-full sm:h-10 "
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Your Username"
               />
+              {/* sm */}
               <input
-                className="text-white text-lg bg-transparent border border-white focus:outline-none placeholder-gray-400 py-2 px-4 rounded-full"
+                className="sm:visible 2xl:hidden  text-white text-lg bg-transparent border border-gray-300 focus:outline-none placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-40 sm:pl-2 sm:p-1  rounded-full sm:h-10 "
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Username"
+              />
+              <input
+                className="sm:hidden text-white text-lg bg-transparent border border-white focus:outline-none sm:h-10  placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-20 sm:pl-2 sm:p-1 rounded-full"
                 type="text"
                 value={room}
                 onChange={(e) => setRoom(e.target.value)}
                 placeholder="Room Name"
               />
+              {/* sm */}
+              <input
+                className="sm:visible 2xl:hidden text-white text-lg bg-transparent border border-white focus:outline-none sm:h-10  placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-20 sm:pl-2 sm:p-1 rounded-full"
+                type="text"
+                value={room}
+                onChange={(e) => setRoom(e.target.value)}
+                placeholder="Room"
+              />
               <button
-                className="text-black text-lg font-extrabold bg-white border-2 border-white hover:bg-black hover:border-white hover:text-white rounded-full py-2"
+                className="text-black text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white"
                 type="submit"
               >
-                Join Room
+                Join
               </button>
             </form>
           </div>
