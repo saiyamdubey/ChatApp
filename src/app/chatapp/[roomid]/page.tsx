@@ -3,8 +3,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { io, Socket } from "socket.io-client";
 
-// const socket = io("http://localhost:4000/");
-const socket = io("https://chatserver-q3gi.onrender.com/");
+const socket = io("http://localhost:4000/");
+// const socket = io("https://chatserver-q3gi.onrender.com/");
 
 interface Message {
   username: string;
@@ -19,7 +19,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [send, setSend] = useState("");
   const [username, setUsername] = useState("");
-  const [room, setRoom] = useState("");
+  const [room, setRoom] = useState(params.roomid);
   const [online, setOnline] = useState(0);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -84,7 +84,6 @@ export default function Page({ params }: { params: { roomid: string } }) {
       socket.emit("getonlineuser", { room, online });
       socket.emit("join", { username, room });
       setUsername(username);
-
       setRoom(room);
     }
   }
@@ -93,7 +92,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
     <>
       <div className="flex flex-col h-[90vh] bg-transparent">
         <h1 className="font-extrabold font-font-font-sans text-4xl sm:text-xl mb-2 text-center text-violet-100">
-          Private Chat ( {params.roomid} Users Online)
+          Private Chat ( {online} Users Online)
         </h1>
         <h1>{params.roomid}</h1>
         <div className="flex sm:flex-col flex-grow overflow-hidden">
@@ -161,8 +160,8 @@ export default function Page({ params }: { params: { roomid: string } }) {
               <input
                 className="sm:hidden text-white text-lg bg-transparent border border-white focus:outline-none sm:h-10  placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-20 sm:pl-2 sm:p-1 rounded-full"
                 type="text"
-                value={room}
-                onChange={(e) => setRoom(e.target.value)}
+                value={params.roomid}
+                onChange={(e) => setRoom(params.roomid)}
                 placeholder="Room Name"
               />
               {/* sm */}

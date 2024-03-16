@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 function Room() {
   const router = useRouter();
@@ -10,10 +11,10 @@ function Room() {
 
   const handleSubmit = (e: any, room: string, name: string) => {
     e.preventDefault();
-    if (name === "") {
-      alert("Please enter a name");
-      return;
-    }
+    // if (name === "") {
+    //   alert("Please enter a name");
+    //   return;
+    // }
     router.push(`/chatapp/${room}`);
   };
 
@@ -26,19 +27,13 @@ function Room() {
         }}
       >
         <h1 className="text-center">Create Room</h1>
-        <input
-          className="sm:hidden text-white text-lg bg-transparent border border-white focus:outline-none sm:h-10  placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-20 sm:pl-2 sm:p-1 rounded-full"
-          type="text"
-          value={room}
-          onChange={(e) => setRoom(e.target.value)}
-          placeholder="Add New Room Name"
-        />
+        
 
         <button
           className="text-black text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white"
           type="submit"
         >
-          Create New Room
+          Create Unique Room
         </button>
       </form>
 
