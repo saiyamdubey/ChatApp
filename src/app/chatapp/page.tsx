@@ -1,20 +1,25 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import React, { useEffect, useState } from "react";
+const { v4: uuidv4 } = require("uuid");
 
 function Room() {
   const router = useRouter();
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const [room, setRoom] = useState("");
 
-  const handleSubmit = (e: any, room: string, name: string) => {
+  const makeuuid = () => {
+    const uuid = uuidv4();
+    setRoom(uuid);
+  };
+
+  useEffect(() => {
+    makeuuid();
+  }, []);
+
+  const handleSubmit = (e: any, room: string) => {
     e.preventDefault();
-    // if (name === "") {
-    //   alert("Please enter a name");
-    //   return;
-    // }
     router.push(`/chatapp/${room}`);
   };
 
@@ -23,11 +28,10 @@ function Room() {
       <form
         className="flex flex-col space-y-4 sm:flex-row sm:mb-4 sm:gap-5 m-10 "
         onSubmit={() => {
-          handleSubmit(event, room, name);
+          handleSubmit(event, room);
         }}
       >
         <h1 className="text-center">Create Room</h1>
-        
 
         <button
           className="text-black text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white"
@@ -40,7 +44,7 @@ function Room() {
       <form
         className="flex flex-col space-y-4 sm:flex-row sm:mb-4 sm:gap-5 m-10"
         onSubmit={() => {
-          handleSubmit(event, room, name);
+          handleSubmit(event, room);
         }}
       >
         <h1 className="text-center">Join Room</h1>

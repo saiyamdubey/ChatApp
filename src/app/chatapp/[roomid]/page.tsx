@@ -94,7 +94,6 @@ export default function Page({ params }: { params: { roomid: string } }) {
         <h1 className="font-extrabold font-font-font-sans text-4xl sm:text-xl mb-2 text-center text-violet-100">
           Private Chat ( {online} Users Online)
         </h1>
-        <h1>{params.roomid}</h1>
         <div className="flex sm:flex-col flex-grow overflow-hidden">
           <div className="flex flex-col w-3/4 sm:h-[72vh] sm:w-full border-gray-700 border-r sm:border-0">
             <div
@@ -157,21 +156,21 @@ export default function Page({ params }: { params: { roomid: string } }) {
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
               />
-              <input
+              {/* <input
                 className="sm:hidden text-white text-lg bg-transparent border border-white focus:outline-none sm:h-10  placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-20 sm:pl-2 sm:p-1 rounded-full"
                 type="text"
-                value={params.roomid}
+                // value={params.roomid}
                 onChange={(e) => setRoom(params.roomid)}
                 placeholder="Room Name"
-              />
+              /> */}
               {/* sm */}
-              <input
+              {/* <input
                 className="sm:visible 2xl:hidden text-white text-lg bg-transparent border border-white focus:outline-none sm:h-10  placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-20 sm:pl-2 sm:p-1 rounded-full"
                 type="text"
-                value={room}
+                // value={room}
                 onChange={(e) => setRoom(e.target.value)}
                 placeholder="Room"
-              />
+              /> */}
               <button
                 className="text-black text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white"
                 type="submit"
