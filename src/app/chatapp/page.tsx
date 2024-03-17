@@ -1,8 +1,6 @@
 "use client";
 
-import Navbar from "@/components/navbar";
 import { Meteors } from "@/components/ui/meteors";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 const { v4: uuidv4 } = require("uuid");
@@ -27,7 +25,6 @@ function Room() {
 
   return (
     <>
-      <Navbar />
       <div className="flex  justify-center items-center gap-40 rounded-3xl bg-transparent w-dvw h-dvh flex-row">
         <div className="relative max-w-sm w-[50rem] sm:w-[80%] h-[15rem] md:h-2/2  ">
           <div className="absolute inset-0 h-full w-[30rem] bg-gradient-to-r from-transparent to-blue-500 transform scale-[0.90] rounded-full blur-3xl flex justify-center items-center" />
@@ -62,6 +59,7 @@ function Room() {
               <h1 className="font-extrabold font-mono text-4xl sm:text-xl mb-4 text-center text-violet-100">
                 Create Room
               </h1>
+
               <button
                 className="text-white p-4 text-lg sm:text-[18px] font-extrabold bg-transparent border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white mt-4"
                 type="submit"

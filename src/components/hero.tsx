@@ -35,7 +35,6 @@ export default function Hero({}: Props) {
   ];
   return (
     <BackgroundGradientAnimation className="-z-50">
-      <Navbar />
       <div className="z-50 sm:hidden flex-col flex px-4 text-center cursor-pointer text-4xl items-center justify-center w-dvw">
         <h1 className=" text-white flex-col justify-center items-center">
           <TypewriterEffectSmooth words={words} className="font-sans" />
