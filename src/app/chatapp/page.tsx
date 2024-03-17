@@ -1,12 +1,14 @@
 "use client";
 
+import Navbar from "@/components/navbar";
+import { Meteors } from "@/components/ui/meteors";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 const { v4: uuidv4 } = require("uuid");
 
 function Room() {
   const router = useRouter();
-  // const [name, setName] = useState("");
   const [room, setRoom] = useState("");
 
   const makeuuid = () => {
@@ -24,46 +26,59 @@ function Room() {
   };
 
   return (
-    <div className="mt-[10rem] m-auto w-[50%] h-[30%] p-10 rounded-3xl bg-transparent border-2 flex justify-center items-center ">
-      <form
-        className="flex flex-col space-y-4 sm:flex-row sm:mb-4 sm:gap-5 m-10 "
-        onSubmit={() => {
-          handleSubmit(event, room);
-        }}
-      >
-        <h1 className="text-center">Create Room</h1>
+    <>
+      <Navbar />
+      <div className=" flex-col  p-10 rounded-3xl bg-transparent w-dvw h-dvh justify-center items-center ">
+        <div className=" h-[15rem] md:h-2/2 w-[50rem] sm:w-[80%] relative max-w-sm ">
+          <div className="absolute  flex justify-center items-center  inset-0 h-full w-[30rem] bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.90]  rounded-full blur-3xl" />
+          <div className="relative w-[30rem] justify-center items-center flex shadow-2xl bg-gray-900 border border-gray-800  px-8 sm:py-6 h-full overflow-hidden rounded-2xl ">
+            <div className="join flex-row justify-center items-center text-center ">
+              <h1 className="font-extrabold font-font-font-sans text-4xl sm:text-xl mb-4 text-center text-violet-100">
+                Join Room
+              </h1>
+              <input
+                className="sm:hidden text-white text-lg bg-transparent border mb-4 border-white focus:outline-none sm:h-10  placeholder-gray-400 py-2 px-4 w-[100%] sm:rounded-md sm:w-20 sm:pl-2 sm:p-1 rounded-full"
+                type="text"
+                onChange={(e) => setRoom(e.target.value)}
+                placeholder="Write Room Name ..."
+              />
 
-        <button
-          className="text-black text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white"
-          type="submit"
-        >
-          Create Unique Room
-        </button>
-      </form>
+              <button
+                onClick={() => {
+                  handleSubmit(event, room);
+                }}
+                className="text-black p-4 text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white"
+                type="submit"
+              >
+                Join Room
+              </button>
+            </div>
+            <Meteors number={10} />
+          </div>
+        </div>
+        <div className=" h-4/4 md:h-2/2 w-4/4 sm:w-[80%] relative max-w-sm">
+          <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.90]  rounded-full blur-3xl" />
+          <div className="relative shadow-2xl bg-gray-900 border border-gray-800  px-8 sm:py-6 h-full overflow-hidden rounded-2xl flex  justify-end items-start">
+            <div className="create">
+              <h1 className="font-extrabold font-font-font-sans text-4xl sm:text-xl mb-2 text-center text-violet-100">
+                Create Room
+              </h1>
+              <button
+                className="text-black text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white"
+                type="submit"
+                onClick={() => {
+                  handleSubmit(event, room);
+                }}
+              >
+                Create Unique Room
+              </button>
+            </div>
 
-      <form
-        className="flex flex-col space-y-4 sm:flex-row sm:mb-4 sm:gap-5 m-10"
-        onSubmit={() => {
-          handleSubmit(event, room);
-        }}
-      >
-        <h1 className="text-center">Join Room</h1>
-        <input
-          className="sm:hidden text-white text-lg bg-transparent border border-white focus:outline-none sm:h-10  placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-20 sm:pl-2 sm:p-1 rounded-full"
-          type="text"
-          value={room}
-          onChange={(e) => setRoom(e.target.value)}
-          placeholder="Write Room Name"
-        />
-
-        <button
-          className="text-black text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white"
-          type="submit"
-        >
-          Join Room
-        </button>
-      </form>
-    </div>
+            <Meteors number={10} />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
