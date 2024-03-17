@@ -46,7 +46,7 @@ function Room() {
                 onClick={() => {
                   handleSubmit(event, room);
                 }}
-                className="text-white p-4 text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white mt-4"
+                className="text-white p-4 text-lg sm:text-[18px] font-extrabold bg-transparent border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white mt-4"
                 type="submit"
               >
                 Join Room
@@ -63,7 +63,7 @@ function Room() {
                 Create Room
               </h1>
               <button
-                className="text-blue-700 p-4 text-lg sm:text-[18px] font-extrabold bg-white border-4 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white mt-4"
+                className="text-white p-4 text-lg sm:text-[18px] font-extrabold bg-transparent border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white mt-4"
                 type="submit"
                 onClick={() => {
                   handleSubmit(event, room);
