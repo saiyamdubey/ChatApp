@@ -8,9 +8,7 @@ export default function Navbar({}: Props) {
   return (
     <>
       <div className=" flex w-dvw items-center justify-between sm:flex-row px-20 font-serif font-extrabold sm:p-2  pt-3">
-        <div className=" sm:pl-2 text-3xl sm:text-[20px] ">
-          ConnectIt.io
-        </div>
+        <div className=" sm:pl-2 text-3xl sm:text-[20px] ">ConnectIt.io</div>
         <div className="bg-transparent flex flex-row gap-10 sm:gap-5 sm:mb-2">
           <Link
             className=" flex flex-row font-mono "
