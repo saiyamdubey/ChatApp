@@ -116,10 +116,13 @@ export default function Page({ params }: { params: { roomid: string } }) {
   };
 
   const openWhatsApp = (text: any) => {
-    const encodedText = encodeURIComponent(text);
-    const whatsappWebUrl = `https://web.whatsapp.com/send?text=${encodedText}`;
-    window.open(whatsappWebUrl, "_blank");
+    const encodedText = encodeURIComponent(
+      `https://connectit.vercel.app/chatapp/${text}`
+    );
+    const whatsappDesktopUrl = `https://wa.me/?text=${encodedText}`;
+    window.open(whatsappDesktopUrl, "_blank");
   };
+
   return (
     <>
       <div className="flex flex-col h-[100vh] bg-transparent p-4">
@@ -127,16 +130,16 @@ export default function Page({ params }: { params: { roomid: string } }) {
           Private Chat ( {online} Users Online)
         </h1>
         <div className="flex sm:flex-col flex-grow overflow-hidden">
-          <div className="flex flex-col w-3/4 sm:h-[75vh] sm:w-full border-gray-700 border-r">
+          <div className="flex flex-col w-3/4 sm:h-[75vh] sm:w-full ">
             <div
               ref={chatContainerRef}
-              className="flex-grow overflow-y-scroll px-5 py-2 scrolleffect sm:border-b border-gray-700"
+              className="flex-grow overflow-y-scroll px-0 py-2 scrolleffect "
             >
               <ul className="space-y-4 ">
                 {messages.map((messageObj, index) => (
                   <li
                     key={index}
-                    className={`p-[14px] px-6 sm:flex 2xl:flex sm:px-4 sm:py-2  flex-wrap h-fit gap-2 items-center justify-evenly rounded-3xl  ${
+                    className={`p-[14px] px-6 sm:flex 2xl:flex-col sm:px-4 sm:py-2  flex-wrap h-fit gap-2 items-center justify-evenly rounded-3xl  ${
                       messageObj.sentByCurrentUser
                         ? "bg-purple-700 text-right min-w-[10rem] sm:min-w-[5rem]  max-w-fit ml-auto"
                         : "bg-red-600 text-left min-w-[10rem] sm:min-w-[5rem] max-w-fit mr-auto"
@@ -195,7 +198,9 @@ export default function Page({ params }: { params: { roomid: string } }) {
                 Join
               </button>
 
-              <p className="roonidlink">{room}</p>
+              <p className="roonidlink text-white text-fit bg-transparent border border-gray-300 focus:outline-none placeholder-gray-400  sm:rounded-md sm:w-48 sm:pl-2 sm:p-1  rounded-full sm:h-10">
+                {room}
+              </p>
               <button
                 className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-pink-600 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
                 onClick={handleCopyText}
