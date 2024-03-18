@@ -25,6 +25,7 @@ function Room() {
 
   return (
     <>
+    
       <div className="flex  justify-center items-center gap-40 rounded-3xl bg-transparent w-dvw h-dvh flex-row">
         <div className="relative max-w-sm w-[50rem] sm:w-[80%] h-[15rem] md:h-2/2  ">
           <div className="absolute inset-0 h-full w-[30rem] bg-gradient-to-r from-transparent to-blue-500 transform scale-[0.90] rounded-full blur-3xl flex justify-center items-center" />
