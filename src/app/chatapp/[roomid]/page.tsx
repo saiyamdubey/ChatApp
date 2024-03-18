@@ -46,6 +46,10 @@ export default function Page({ params }: { params: { roomid: string } }) {
   }, []);
 
   useEffect(() => {
+    console.log("fdfg");
+  });
+
+  useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop =
         chatContainerRef.current.scrollHeight;
@@ -122,15 +126,15 @@ export default function Page({ params }: { params: { roomid: string } }) {
       document.execCommand("copy");
       document.body.removeChild(textArea);
 
-      openWhatsRoom(room);
+      // openWhatsRoom(room);
     }
   };
 
-  const openWhatsRoom = (text: any) => {
-    const encodedText = encodeURIComponent(`${text}`);
-    const whatsappDesktopUrl = `https://wa.me/?text=${encodedText}`;
-    window.open(whatsappDesktopUrl, "_blank");
-  };
+  // const openWhatsRoom = (text: any) => {
+  //   const encodedText = encodeURIComponent(`${text}`);
+  //   const whatsappDesktopUrl = `https://wa.me/?text=${encodedText}`;
+  //   window.open(whatsappDesktopUrl, "_blank");
+  // };
 
   return (
     <>
