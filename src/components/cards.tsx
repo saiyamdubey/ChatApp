@@ -36,12 +36,12 @@ export default function Cards({}: Props) {
           <div className="absolute inset-0 h-full  w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.90]  rounded-full blur-3xl" />
           <div className="relative shadow-xl bg-gray-900  border border-gray-800 sm:py-8  px-8 py-16 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
             <h1 className="font-bold text-2xl sm:text-[22px] mx-auto text-center text-white mb-4 relative z-50">
-              Share Private Files
+              Secure Video Calling
             </h1>
             <p className="font-normal text-base sm:text-[14px] text-center text-slate-300 mb-4 relative z-50">
-              This shareing is constructed with Socket.IO for secure RTC
-              connections, by know that you want to share your private things it
-              is totally secure.
+              This shareing is constructed with Zegovclouds for secure webRTC
+              connections, by know that you want to share your private video to
+              the other users.
             </p>
             <Link href="/fileshare" className="mx-auto cursor-pointer z-50">
               <button className="inline-flex sm:px-4 mx-auto h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 cursor-pointer">

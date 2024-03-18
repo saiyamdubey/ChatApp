@@ -44,13 +44,13 @@ body {
   }/*/
   body {
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
+    /* background: linear-gradient(
         to bottom,
         transparent,
         rgb(var(--background-end-rgb))
       )
-      rgb(var(--background-start-rgb));
-    /* background: repeating-conic-gradient(rgba(0, 0, 0, 0.909) 100%, transparent , transparent 75%, transparent 65%), repeating-conic-gradient(rgba(0, 0, 0, 0.013) 0%, transparent .04%, transparent 0.05%, transparent .495%), radial-gradient(circle at 50% 50%, #000000, #000000); */
+      rgb(var(--background-start-rgb)); */
+    background: repeating-conic-gradient(rgba(0, 0, 0, 0.909) 100%, transparent , transparent 75%, transparent 65%), repeating-conic-gradient(rgba(0, 0, 0, 0.013) 0%, transparent .04%, transparent 0.05%, transparent .495%), radial-gradient(circle at 50% 50%, #000000, #000000);
   }
 }
 

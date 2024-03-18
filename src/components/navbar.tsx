@@ -7,9 +7,9 @@ type Props = {};
 export default function Navbar({}: Props) {
   return (
     <>
-      <div className=" flex w-dvw items-center justify-between sm:flex-row px-20 font-serif font-extrabold sm:p-2  pt-3 z-50  bg-transparent">
+      <div className=" flex w-dvw items-center justify-evenly sm:flex-row px-20 font-serif font-extrabold sm:p-8  pt-3 z-50 gap-[45rem]  sm:gap-10 bg-transparent">
         <div className=" sm:pl-2 text-3xl sm:text-[20px] ">ConnectIt.io</div>
-        <div className=" flex flex-row gap-10 sm:gap-5 sm:mb-2">
+        <div className=" flex flex-row gap-10 sm:gap-3 sm:mb-1">
           <Link
             className=" flex flex-row font-mono "
             href="https://github.com/saiyamdubey"
