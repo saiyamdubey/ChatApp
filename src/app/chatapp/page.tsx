@@ -8,9 +8,10 @@ const { v4: uuidv4 } = require("uuid");
 function Room() {
   const router = useRouter();
   const [room, setRoom] = useState("");
+  const [joinroom, setjoinRoom] = useState("");
 
-  const makeuuid = () => {
-    const uuid = uuidv4();
+  const makeuuid = async () => {
+    const uuid = await uuidv4();
     setRoom(uuid);
   };
 
@@ -18,9 +19,18 @@ function Room() {
     makeuuid();
   }, []);
 
-  const handleSubmit = (e: any, room: string) => {
+  const handleSubmit = async (e: any, room: string) => {
     e.preventDefault();
+    // if (!room || room === "") return;
+    const a = await makeuuid();
     router.push(`/chatapp/${room}`);
+  };
+
+  const handlejoinroom = async (e: any, joinroom: string) => {
+    e.preventDefault();
+    if (!joinroom || joinroom === "") return;
+
+    router.push(`/chatapp/${joinroom}`);
   };
 
   return (
@@ -34,14 +44,14 @@ function Room() {
                 Join Room
               </h1>
               <input
-                className=" text-white text-lg bg-transparent border-2 mb-4 border-white focus:outline-none sm:h-10 placeholder-gray-400 py-2 px-4 w-full sm:rounded-md sm:w-20 sm:pl-2 sm:p-1 rounded-3xl"
+                className=" text-white text-lg w-[150%] bg-transparent border-2 mb-4 border-white focus:outline-none sm:h-10 sm:w-[110%] placeholder-gray-400 py-2 px-3 sm:rounded-3xl sm:pl-2 sm:p-1 rounded-3xl"
                 type="text"
-                onChange={(e) => setRoom(e.target.value)}
+                onChange={(e) => setjoinRoom(e.target.value)}
                 placeholder="Write Room Name ..."
               />
               <button
                 onClick={() => {
-                  handleSubmit(event, room);
+                  handlejoinroom(event, joinroom);
                 }}
                 className="visible sm:hidden text-white p-4 text-lg sm:text-[18px] font-extrabold bg-transparent border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white mt-4"
                 type="submit"
