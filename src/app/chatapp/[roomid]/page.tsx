@@ -89,6 +89,37 @@ export default function Page({ params }: { params: { roomid: string } }) {
     }
   }
 
+  const handleCopyText = () => {
+    // Copy text to clipboard
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .writeText(room)
+        .then(() => {
+          alert("Text copied to clipboard!");
+          // Open WhatsApp web with copied text
+          openWhatsApp(room);
+        })
+        .catch((err) => {
+          console.error("Failed to copy text: ", err);
+        });
+    } else {
+      // Fallback for unsupported browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = room;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      alert("Text copied to clipboard!");
+      openWhatsApp(room);
+    }
+  };
+
+  const openWhatsApp = (text: any) => {
+    const encodedText = encodeURIComponent(text);
+    const whatsappWebUrl = `https://web.whatsapp.com/send?text=${encodedText}`;
+    window.open(whatsappWebUrl, "_blank");
+  };
   return (
     <>
       <div className="flex flex-col h-[100vh] bg-transparent p-4">
@@ -140,7 +171,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
           <div className="flex flex-col sm:w-[100%] w-[25%] bg-transparent p-4   sm:flex-row sm:justify-between ">
             <form
               onSubmit={handleJoinRoom}
-              className="flex flex-col space-y-4 sm:flex-row  sm:gap-5  "
+              className="flex flex-col space-y-4 sm:flex-row  my-auto sm:gap-5  "
             >
               <input
                 className="sm:hidden text-white text-lg bg-transparent border border-gray-300 focus:outline-none placeholder-gray-400 py-2 px-4 sm:rounded-md sm:w-48 sm:pl-2 sm:p-1  rounded-full sm:h-10 "
@@ -158,10 +189,18 @@ export default function Page({ params }: { params: { roomid: string } }) {
                 placeholder="Username"
               />
               <button
-                className="text-black text-lg sm:text-[18px] font-extrabold bg-blue-600 border-2 border-blue-600 hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white"
+                className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-blue-600 border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
                 type="submit"
               >
                 Join
+              </button>
+
+              <p className="roonidlink">{room}</p>
+              <button
+                className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-pink-600 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
+                onClick={handleCopyText}
+              >
+                Share Room ID
               </button>
             </form>
           </div>

@@ -82,3 +82,9 @@ body {
 .scrolleffect::-webkit-scrollbar {
     display: none;
 }
+
+
+.roonidlink{
+  user-select: none;
+  -webkit-user-select: none;
+}
