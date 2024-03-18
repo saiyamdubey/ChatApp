@@ -25,11 +25,10 @@ function Room() {
 
   return (
     <>
-    
-      <div className="flex  justify-center items-center gap-40 rounded-3xl bg-transparent w-dvw h-dvh flex-row">
+      <div className="flex sm:flex-col justify-center items-center gap-40 rounded-3xl bg-transparent w-[100%] h-dvh flex-row overflow-hidden">
         <div className="relative max-w-sm w-[50rem] sm:w-[80%] h-[15rem] md:h-2/2  ">
-          <div className="absolute inset-0 h-full w-[30rem] bg-gradient-to-r from-transparent to-blue-500 transform scale-[0.90] rounded-full blur-3xl flex justify-center items-center" />
-          <div className="relative h-full w-[30rem]  border border-white px-8 sm:py-6 overflow-hidden rounded-2xl shadow-2xl flex justify-center items-center">
+          <div className="absolute inset-0 h-full w-[30rem] sm:w-[100%] bg-gradient-to-r from-transparent to-blue-600 transform scale-[0.90] rounded-full blur-3xl flex justify-center items-center" />
+          <div className="relative h-full w-[30rem] sm:w-[100%]  border border-white px-8 sm:py-6 overflow-hidden rounded-2xl shadow-2xl flex justify-center items-center">
             <div className="join flex flex-col justify-center items-center text-center">
               <h1 className="font-extrabold font-mono text-4xl sm:text-xl mb-4 text-center text-violet-100">
                 Join Room
@@ -54,21 +53,31 @@ function Room() {
           </div>
         </div>
         <div className="relative max-w-sm w-[50rem] sm:w-[80%] h-[15rem] md:h-2/2 ">
-          <div className="absolute inset-0 h-full w-[30rem] bg-gradient-to-r from-pink-800 to-transparent-500 transform scale-[0.90] rounded-full blur-3xl flex justify-center items-center" />
-          <div className="relative h-full w-[30rem]  border-2 border-white px-8 sm:py-6 overflow-hidden rounded-2xl shadow-2xl flex justify-center items-center">
+          <div className="absolute inset-0 h-full w-[30rem] sm:w-[100%] bg-gradient-to-r from-pink-800 to-transparent-500 transform scale-[0.90] rounded-full blur-3xl flex justify-center items-center" />
+          <div className="relative h-full w-[30rem] sm:w-[100%] border-2 border-white px-8 sm:py-6 overflow-hidden rounded-2xl shadow-2xl flex justify-center items-center">
             <div className="join flex flex-col justify-center items-center text-center">
               <h1 className="font-extrabold font-mono text-4xl sm:text-xl mb-4 text-center text-violet-100">
                 Create Room
               </h1>
 
               <button
-                className="text-white p-4 text-lg sm:text-[18px] font-extrabold bg-transparent border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white mt-4"
+                className="visible sm:hidden text-white p-4 text-lg sm:text-[18px] font-extrabold bg-transparent border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white mt-4"
                 type="submit"
                 onClick={() => {
                   handleSubmit(event, room);
                 }}
               >
                 Create Unique Room
+              </button>
+              {/* sm wala niichu hai  */}
+              <button
+                className="sm:visible 2xl:hidden text-white p-4 text-lg sm:text-[18px] font-extrabold bg-transparent border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white mt-4"
+                type="submit"
+                onClick={() => {
+                  handleSubmit(event, room);
+                }}
+              >
+                Create
               </button>
             </div>
             <Meteors number={15} />
