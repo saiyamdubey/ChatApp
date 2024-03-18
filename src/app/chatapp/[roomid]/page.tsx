@@ -45,9 +45,10 @@ export default function Page({ params }: { params: { roomid: string } }) {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("fdfg");
-  });
+  // useEffect(() => {
+  //   console.log("fdfg");
+  //   socket.emit("getonlineuser");
+  // });
 
   useEffect(() => {
     if (chatContainerRef.current) {
