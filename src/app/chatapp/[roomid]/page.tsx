@@ -91,7 +91,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
 
   return (
     <>
-      <div className="flex flex-col h-[90vh] bg-transparent">
+      <div className="flex flex-col h-[100vh] bg-transparent p-4">
         <h1 className="font-extrabold font-font-font-sans text-4xl sm:text-xl mb-2 text-center text-violet-100">
           Private Chat ( {online} Users Online)
         </h1>

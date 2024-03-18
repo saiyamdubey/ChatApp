@@ -29,7 +29,6 @@ function Room() {
   const handlejoinroom = async (e: any, joinroom: string) => {
     e.preventDefault();
     if (!joinroom || joinroom === "") return;
-
     router.push(`/chatapp/${joinroom}`);
   };
 
