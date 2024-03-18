@@ -90,27 +90,15 @@ export default function Page({ params }: { params: { roomid: string } }) {
   }
 
   const handleCopyText = () => {
-    // Copy text to clipboard
     if (navigator.clipboard) {
-      navigator.clipboard
-        .writeText(room)
-        .then(() => {
-          alert("Text copied to clipboard!");
-          // Open WhatsApp web with copied text
-          openWhatsApp(room);
-        })
-        .catch((err) => {
-          console.error("Failed to copy text: ", err);
-        });
+      navigator.clipboard.writeText(room);
     } else {
-      // Fallback for unsupported browsers
       const textArea = document.createElement("textarea");
       textArea.value = room;
       document.body.appendChild(textArea);
       textArea.select();
       document.execCommand("copy");
       document.body.removeChild(textArea);
-      alert("Text copied to clipboard!");
       openWhatsApp(room);
     }
   };
@@ -123,6 +111,27 @@ export default function Page({ params }: { params: { roomid: string } }) {
     window.open(whatsappDesktopUrl, "_blank");
   };
 
+  const handleCopyRoomid = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(room);
+    } else {
+      const textArea = document.createElement("textarea");
+      textArea.value = room;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+
+      openWhatsRoom(room);
+    }
+  };
+
+  const openWhatsRoom = (text: any) => {
+    const encodedText = encodeURIComponent(`${text}`);
+    const whatsappDesktopUrl = `https://wa.me/?text=${encodedText}`;
+    window.open(whatsappDesktopUrl, "_blank");
+  };
+
   return (
     <>
       <div className="flex flex-col h-[100vh] bg-transparent p-4">
@@ -130,10 +139,10 @@ export default function Page({ params }: { params: { roomid: string } }) {
           Private Chat ( {online} Users Online)
         </h1>
         <div className="flex sm:flex-col flex-grow overflow-hidden">
-          <div className="flex flex-col w-3/4 sm:h-[75vh] sm:w-full ">
+          <div className="flex flex-col w-3/4 sm:h-[75vh] border-r sm:border-0 border-gray-500 sm:w-full ">
             <div
               ref={chatContainerRef}
-              className="flex-grow overflow-y-scroll px-0 py-2 scrolleffect "
+              className="flex-grow overflow-y-scroll px-4 sm:px-2 py-2 scrolleffect "
             >
               <ul className="space-y-4 ">
                 {messages.map((messageObj, index) => (
@@ -164,7 +173,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
                 placeholder="Type your message"
               />
               <button
-                className="text-black sm:text-[17px] sm:text-center sm:w-[20%] text-2xl font-extrabold bg-green-600 border-2 border-black hover:bg-black hover:text-white hover:border-green-600 rounded-full sm:rounded-md px-10 sm:p-1 py-3 ml-4 w-[20%] sm:text-white"
+                className="text-white sm:text-[17px] tracking-widest font-mono sm:border-2 sm:border-white sm:text-center sm:w-[20%] text-2xl font-extrabold bg-green-600 border-2 border-white hover:bg-black hover:text-white hover:border-green-600 rounded-full sm:rounded-md px-10 sm:p-1 py-3 ml-4 w-[20%] sm:text-white"
                 type="submit"
               >
                 Send
@@ -192,20 +201,26 @@ export default function Page({ params }: { params: { roomid: string } }) {
                 placeholder="Username"
               />
               <button
-                className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-blue-600 border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
+                className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-blue-600 border-2 border-wihte hover:bg-black hover:border-blue-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
                 type="submit"
               >
                 Join
               </button>
 
-              <p className="roonidlink text-white text-fit bg-transparent border border-gray-300 focus:outline-none placeholder-gray-400  sm:rounded-md sm:w-48 sm:pl-2 sm:p-1  rounded-full sm:h-10">
+              {/* <p className="roonidlink text-white text-fit bg-transparent border border-gray-300 focus:outline-none placeholder-gray-400  sm:rounded-md sm:w-48 sm:pl-2 sm:p-1  rounded-full sm:h-10">
                 {room}
-              </p>
+              </p> */}
               <button
                 className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-pink-600 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
                 onClick={handleCopyText}
               >
-                Share Room ID
+                What`sApp Share
+              </button>
+              <button
+                className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-yellow-700 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
+                onClick={handleCopyRoomid}
+              >
+                Copy Room ID
               </button>
             </form>
           </div>
