@@ -90,6 +90,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
   }
 
   const handleCopyText = () => {
+    alert("Shobhit");
     if (navigator.clipboard) {
       navigator.clipboard.writeText(room);
     } else {
@@ -104,6 +105,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
   };
 
   const openWhatsApp = (text: any) => {
+    alert("Saiyam dubey");
     const encodedText = encodeURIComponent(
       `https://connectit.vercel.app/chatapp/${text}`
     );
@@ -121,16 +123,8 @@ export default function Page({ params }: { params: { roomid: string } }) {
       textArea.select();
       document.execCommand("copy");
       document.body.removeChild(textArea);
-
-      // openWhatsRoom(room);
     }
   };
-
-  // const openWhatsRoom = (text: any) => {
-  //   const encodedText = encodeURIComponent(`${text}`);
-  //   const whatsappDesktopUrl = `https://wa.me/?text=${encodedText}`;
-  //   window.open(whatsappDesktopUrl, "_blank");
-  // };
 
   return (
     <>
@@ -210,6 +204,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
               {/* <p className="roonidlink text-white text-fit bg-transparent border border-gray-300 focus:outline-none placeholder-gray-400  sm:rounded-md sm:w-48 sm:pl-2 sm:p-1  rounded-full sm:h-10">
                 {room}
               </p> */}
+
               <button
                 className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-pink-600 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
                 onClick={handleCopyText}
