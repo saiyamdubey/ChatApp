@@ -89,8 +89,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
     }
   }
 
-  const handleCopyText =async () => {
-    alert("Shobhit");
+  const handleCopyText = async () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(room);
     } else {
@@ -100,14 +99,13 @@ export default function Page({ params }: { params: { roomid: string } }) {
       textArea.select();
       document.execCommand("copy");
       document.body.removeChild(textArea);
-      await openWhatsApp(room);
+      // openWhatsApp(room);
     }
   };
 
-  const openWhatsApp = (text: any) => {
-    alert("Saiyam dubey");
+  const openWhatsApp = () => {
     const encodedText = encodeURIComponent(
-      `https://connectit.vercel.app/chatapp/${text}`
+      `https://connectit.vercel.app/chatapp/${params.roomid}`
     );
     const whatsappDesktopUrl = `https://wa.me/?text=${encodedText}`;
     window.open(whatsappDesktopUrl, "_blank");
@@ -142,7 +140,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
                 {messages.map((messageObj, index) => (
                   <li
                     key={index}
-                    className={`p-[14px] px-6 sm:flex 2xl:flex-col sm:px-4 sm:py-2  flex-wrap h-fit gap-2 items-center justify-evenly rounded-3xl  ${
+                    className={`p-[14px] px-6 flex sm:flex  sm:px-4 sm:py-2 h-fit gap-2 items-center justify-evenly rounded-3xl  ${
                       messageObj.sentByCurrentUser
                         ? "bg-purple-700 text-right min-w-[10rem] sm:min-w-[5rem]  max-w-fit ml-auto"
                         : "bg-red-600 text-left min-w-[10rem] sm:min-w-[5rem] max-w-fit mr-auto"
@@ -201,13 +199,9 @@ export default function Page({ params }: { params: { roomid: string } }) {
                 Join
               </button>
 
-              {/* <p className="roonidlink text-white text-fit bg-transparent border border-gray-300 focus:outline-none placeholder-gray-400  sm:rounded-md sm:w-48 sm:pl-2 sm:p-1  rounded-full sm:h-10">
-                {room}
-              </p> */}
-
               <button
                 className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-pink-600 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
-                onClick={handleCopyText}
+                onClick={openWhatsApp}
               >
                 What`s App Share
               </button>
