@@ -214,7 +214,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
                 className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-pink-600 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
                 onClick={handleCopyText}
               >
-                What`sApp Share
+                What`s App Share
               </button>
               <button
                 className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-yellow-700 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
