@@ -89,19 +89,19 @@ export default function Page({ params }: { params: { roomid: string } }) {
     }
   }
 
-  const handleCopyText = async () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(room);
-    } else {
-      const textArea = document.createElement("textarea");
-      textArea.value = room;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-      // openWhatsApp(room);
-    }
-  };
+  // const handleCopyText = async () => {
+  //   if (navigator.clipboard) {
+  //     navigator.clipboard.writeText(room);
+  //   } else {
+  //     const textArea = document.createElement("textarea");
+  //     textArea.value = room;
+  //     document.body.appendChild(textArea);
+  //     textArea.select();
+  //     document.execCommand("copy");
+  //     document.body.removeChild(textArea);
+  //     // openWhatsApp(room);
+  //   }
+  // };
 
   const openWhatsApp = () => {
     const encodedText = encodeURIComponent(
@@ -200,13 +200,13 @@ export default function Page({ params }: { params: { roomid: string } }) {
               </button>
 
               <button
-                className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-pink-600 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
+                className="text-white sm:hidden font-mono text-xl sm:text-[18px] font-extrabold bg-pink-600 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
                 onClick={openWhatsApp}
               >
                 What`s App Share
               </button>
               <button
-                className="text-white font-mono text-xl sm:text-[18px] font-extrabold bg-yellow-700 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
+                className="text-white sm:hidden font-mono text-xl sm:text-[18px] font-extrabold bg-yellow-700 border-2 border-white hover:bg-black hover:border-pink-600 hover:text-white rounded-full py-2 sm:rounded-md sm:w-20 sm:h-10 sm:text-white tracking-widest"
                 onClick={handleCopyRoomid}
               >
                 Copy Room ID
