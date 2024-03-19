@@ -89,7 +89,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
     }
   }
 
-  const handleCopyText = () => {
+  const handleCopyText =async () => {
     alert("Shobhit");
     if (navigator.clipboard) {
       navigator.clipboard.writeText(room);
@@ -100,7 +100,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
       textArea.select();
       document.execCommand("copy");
       document.body.removeChild(textArea);
-      openWhatsApp(room);
+      await openWhatsApp(room);
     }
   };
 
