@@ -23,14 +23,12 @@ export default function App() {
 
   useEffect(() => {
     const myMeeting = async (element: any) => {
-      if (typeof window === "undefined") return; // Ensure code runs only on client-side
+      if (typeof window === "undefined") return; 
 
-      // Import ZegoUIKitPrebuilt only on the client-side
       const { ZegoUIKitPrebuilt } = await import(
         "@zegocloud/zego-uikit-prebuilt"
       );
 
-      // generate Kit Token
       const appID = 1951306805;
       const serverSecret = "7631914ccc8f251898066b596856c9e8";
       const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
@@ -40,15 +38,14 @@ export default function App() {
         randomID(5),
         randomID(5)
       );
-
-      // Create instance object from Kit Token.
       const zp = ZegoUIKitPrebuilt.create(kitToken);
-      // start the call
+
       zp.joinRoom({
         container: element,
+
         sharedLinks: [
           {
-            name: "Personal link",
+            name: "Sharable link",
             url:
               window.location.protocol +
               "//" +
