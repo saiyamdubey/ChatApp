@@ -62,7 +62,7 @@ function Room() {
                 className="sm:visible 2xl:hidden text-white sm:text-[18px] font-extrabold bg-transparent border-2 border-white hover:bg-black hover:blue-600 hover:text-white rounded-full p-4 px-6 sm:rounded-md  sm:text-white mt-4"
                 type="submit"
                 onClick={() => {
-                  handleSubmit(event, room);
+                  handlejoinroom(event, room);
                 }}
               >
                 Join
