@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  /* user-select: none; */
+  /* -moz-user-select: none; */
+  overflow: hidden;
+  color: rgb(var(--foreground-rgb));
+  /* background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+	background: repeating-conic-gradient(#FFF4 0%, transparent .001%, transparent .0075%, transparent .65%), repeating-conic-gradient(#FFF2 0%, transparent .0004%, transparent 0.05%, transparent .495%), radial-gradient(circle at 50% 50%, #000000, #000000);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media only screen and (max-width: 1268px) {
+  /* .gradients-container {
+    /* Adjust the size of animation points for smaller screens */
+    /* For example, reduce the size to 50px */
+    /*--size: 50px;
+  }/*/
+  body {
+    color: rgb(var(--foreground-rgb));
+    /* background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb)); */
+    background: repeating-conic-gradient(rgba(0, 0, 0, 0.909) 100%, transparent , transparent 75%, transparent 65%), repeating-conic-gradient(rgba(0, 0, 0, 0.013) 0%, transparent .04%, transparent 0.05%, transparent .495%), radial-gradient(circle at 50% 50%, #000000, #000000);
+  }
+}
+
+/* @media only screen and (min-width: 769px) {
+  .gradients-container {
+    /* Adjust the size of animation points for larger screens */
+    /* For example, increase the size to 100px */
+    /* --size: 100px; */
+  /* } */
+/* } */ 
+
+.card-container {
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  filter: blur(100px);
+}
+
+.card {
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.scrolleffect::-webkit-scrollbar {
+    display: none;
+}
+
+
+.roonidlink{
+  user-select: none;
+  -webkit-user-select: none;
+}
