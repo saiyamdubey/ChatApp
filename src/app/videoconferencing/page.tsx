@@ -38,7 +38,7 @@
 //         randomID(5),
 //         randomID(5)
 //       );
-      
+
 //       const zp = ZegoUIKitPrebuilt.create(kitToken);
 
 //       zp.joinRoom({
@@ -148,10 +148,6 @@
 
 // // export default App;
 
-
-
-
-
 // // import React, { useEffect } from "react";
 // // import { useRouter } from 'next/router';
 
@@ -226,3 +222,12 @@
 // // }
 
 // // export default App;
+
+"use client";
+import React from "react";
+
+type Props = {};
+
+export default function page({}: Props) {
+  return <div>Happy Holi</div>;
+}
