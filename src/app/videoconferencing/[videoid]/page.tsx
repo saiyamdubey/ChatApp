@@ -87,7 +87,21 @@ export default function Page({ params }: { params: { roomid: string } }) {
       setRoom(room);
     }
   }
-  
+
+  // const handleCopyText = async () => {
+  //   if (navigator.clipboard) {
+  //     navigator.clipboard.writeText(room);
+  //   } else {
+  //     const textArea = document.createElement("textarea");
+  //     textArea.value = room;
+  //     document.body.appendChild(textArea);
+  //     textArea.select();
+  //     document.execCommand("copy");
+  //     document.body.removeChild(textArea);
+  //     // openWhatsApp(room);
+  //   }
+  // };
+
   const openWhatsApp = () => {
     const encodedText = encodeURIComponent(
       `https://connectit.vercel.app/chatapp/${params.roomid}`

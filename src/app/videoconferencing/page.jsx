@@ -68,7 +68,7 @@ export default function Page() {
     }
   }, [roomID]);
 
-  return <div className="myCallContainer w-dvw h-dvh"></div>;
+  return <div className="myCallContainer w-dvw h-dvh m-auto"></div>;
 }
 
 
