@@ -1,18 +1,5 @@
 "use client";
 
-// import React, { useEffect } from "react";
-
-// function randomID(len) {
-//   let result = "";
-//   if (result) return result;
-//   var chars = "12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP";
-//   var maxPos = chars.length;
-//   for (var i = 0; i < len; i++) {
-//     result += chars.charAt(Math.floor(Math.random() * maxPos));
-//   }
-//   return result;
-// }
-
 
 
 "use client";
