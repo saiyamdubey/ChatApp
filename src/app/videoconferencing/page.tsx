@@ -1,9 +1,5 @@
 "use client";
 
-
-
-"use client";
-
 import { Meteors } from "@/components/ui/meteors";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
