@@ -21,7 +21,6 @@ function Room() {
 
   const handleSubmit = async (e: any, room: any) => {
     e.preventDefault();
-    // if (!room || room === "") return;
     const a = await makeuuid();
     router.push(`/videoconferencing/${room}`);
   };
