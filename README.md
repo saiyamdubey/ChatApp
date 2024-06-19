@@ -12,7 +12,6 @@
 ![App_Priview](https://github.com/saiyamdubey/ChatApp/blob/main/public/Screenshot%202024-02-25%20014418.png)
 
 <br>
-
 ## Features
 
 - Real-time messaging
