@@ -20,6 +20,7 @@
 <hr>
 ## Technologies Used
 
+
 - Node.js
 - Next.js 14
 - Express
