@@ -14,7 +14,6 @@
 <br>
 
 ## Features
-
 - Real-time messaging
 - User authentication
 - Chat rooms
