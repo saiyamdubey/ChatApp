@@ -18,7 +18,6 @@
 - Chat rooms
 - Responsive design with Tailwind CSS
 <hr>
-
 ## Technologies Used
 
 - Node.js
