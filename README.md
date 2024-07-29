@@ -1,28 +1,28 @@
 
+
 # ChapApp using Socket.io  <hr>
 
 
 ## Overview 
 
 #### ChapApp is a real-time chat application built using Node.js, Next.js, Express, Socket.io, Tailwind CSS, and WebSockets for duplex communication and it Provide a lot more features as you see in the url below do check it out the other repositories 
+
 <br>
 
 <hr>
-
 ![App_Priview](https://github.com/saiyamdubey/ChatApp/blob/main/public/Screenshot%202024-02-25%20014418.png)
 
 <br>
 
 ## Features
-
 - Real-time messaging
 - User authentication
 - Chat rooms
 - Responsive design with Tailwind CSS
-
 <hr>
 
 ## Technologies Used
+
 
 - Node.js
 - Next.js 14
