@@ -127,14 +127,14 @@ export default function Page({ params }: { params: { roomid: string } }) {
                     key={index}
                     className={`p-[14px] px-6 flex sm:flex  sm:px-4 sm:py-2 h-fit gap-2 items-center justify-evenly rounded-3xl  ${
                       messageObj.sentByCurrentUser
-                        ? "bg-purple-700 text-right min-w-[10rem] sm:min-w-[5rem]  max-w-fit ml-auto"
-                        : "bg-red-600 text-left min-w-[10rem] sm:min-w-[5rem] max-w-fit mr-auto"
+                        ? "bg-purple-700 text-right min-w-[10rem] sm:min-w-[5rem]  max-w-[20rem] ml-auto"
+                        : "bg-red-600 text-left min-w-[10rem] sm:min-w-[5rem] max-w-[20rem] mr-auto"
                     }`}
                   >
                     <pre className=" text-gray-200 sm:text-[16px] sm:font-mono ">
                       {messageObj.username} :
                     </pre>
-                    <pre className="text-white text-xl indent-[20px] sm:text-[16px] sm:font-serif sm:font-light font-bold text-wrap auto-cols-max overflow-hidden">
+                    <pre className="text-white text-xl indent-[20px] sm:text-[16px] sm:font-serif sm:font-light font-bold  auto-cols-max overflow-hidden">
                       {messageObj.message}
                     </pre>
                   </li>
