@@ -87,7 +87,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
       setRoom(room);
     }
   }
-  
+
   const openWhatsApp = () => {
     const encodedText = encodeURIComponent(
       `https://connectit.vercel.app/chatapp/${params.roomid}`
@@ -134,7 +134,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
                     <pre className=" text-gray-200 sm:text-[16px] sm:font-mono ">
                       {messageObj.username} :
                     </pre>
-                    <pre className="text-white text-xl sm:text-[16px] sm:font-serif sm:font-light font-bold text-wrap auto-cols-max overflow-hidden">
+                    <pre className="text-white text-xl indent-[20px] sm:text-[16px] sm:font-serif sm:font-light font-bold text-wrap auto-cols-max overflow-hidden">
                       {messageObj.message}
                     </pre>
                   </li>
