@@ -131,9 +131,9 @@ export default function Page({ params }: { params: { roomid: string } }) {
                         : "bg-red-600 text-left min-w-[10rem] sm:min-w-[5rem] max-w-fit mr-auto"
                     }`}
                   >
-                    <span className=" text-gray-200 sm:text-[16px] sm:font-mono ">
+                    <pre className=" text-gray-200 sm:text-[16px] sm:font-mono ">
                       {messageObj.username} :
-                    </span>
+                    </pre>
                     <pre className="text-white text-xl sm:text-[16px] sm:font-serif sm:font-light font-bold text-wrap auto-cols-max overflow-hidden">
                       {messageObj.message}
                     </pre>
