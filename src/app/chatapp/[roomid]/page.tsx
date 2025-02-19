@@ -150,7 +150,7 @@ export default function Page({ params }: { params: { roomid: string } }) {
                 placeholder="Type your message"
               />
               <button
-                className="text-white sm:text-[17px] tracking-widest font-mono sm:border-2 sm:border-white sm:text-center sm:w-[20%] text-2xl font-extrabold bg-green-600 border-2 border-white hover:bg-black hover:text-white hover:border-green-600 rounded-full sm:rounded-md px-10 sm:p-1 py-3 ml-4 w-[20%] sm:text-white"
+                className="text-white sm:text-[17px] tracking-widest font-mono sm:border-2 sm:border-white sm:text-center sm:w-[20%] text-2xl font-extrabold bg-red-600 border-2 border-white hover:bg-black hover:text-white hover:border-green-600 rounded-full sm:rounded-md px-10 sm:p-1 py-3 ml-4 w-[20%] sm:text-white"
                 type="submit"
               >
                 Send
